@@ -200,12 +200,46 @@ section{position:relative}
 .decide .mini i:nth-child(5){background:var(--amber)}
 @media (max-width:900px){.case{grid-template-columns:1fr}.case.rev > :first-child{order:2}}
 
+
+/* ---------- web y app ---------- */
+.show{margin:clamp(100px,12vw,160px) clamp(8px,1.4vw,18px) 0;border-radius:var(--r-xl);background:var(--navy);color:var(--on-navy);overflow:hidden;position:relative;isolation:isolate;padding-block:clamp(70px,9vw,120px)}
+.show .blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(100px);pointer-events:none}
+.show .b1{width:640px;height:640px;background:#1745D6;opacity:.55;right:-160px;top:-200px}
+.show .b2{width:420px;height:420px;background:#FFB547;opacity:.18;left:-120px;bottom:-200px}
+.show .grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(36px,6vw,80px);align-items:center}
+.show .kicker{color:#7FA6FF}
+.show .lead{color:var(--on-navy-muted)}
+.feats{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:14px}
+.feats li{display:flex;gap:14px;align-items:flex-start}
+.feats i{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--navy-line);display:grid;place-items:center;flex:none;color:#7FA6FF}
+.feats i svg{width:19px;height:19px}
+.feats b{display:block;font-weight:600;color:#fff}
+.feats span{color:var(--on-navy-muted);font-size:.95rem}
+.stagewrap{position:relative;padding:0 6% 60px 0}
+.laptop .scr{border:10px solid #0B0F14;border-bottom-width:16px;border-radius:16px 16px 4px 4px;background:#0B0F14;aspect-ratio:16/10;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.laptop .scr img{width:100%;height:100%;object-fit:cover;object-position:top}
+.laptop .base{height:14px;margin:0 -7%;background:linear-gradient(#D8DEE4,#8E99A4);border-radius:2px 2px 14px 14px;position:relative}
+.laptop .base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;transform:translateX(-50%);background:#AEB7C0;border-radius:0 0 8px 8px}
+.phone{position:absolute;aspect-ratio:9/19.5;border-radius:26px;background:#0B0F14;padding:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.75),inset 0 0 0 1px #2A3442}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:20px}
+.phone::before{content:"";position:absolute;left:50%;top:11px;width:28%;height:12px;transform:translateX(-50%);background:#0B0F14;border-radius:999px;z-index:1}
+.show .ph1{width:25%;right:0;bottom:0}
+.show .ph2{width:22%;right:24%;bottom:-14px}
+@media (max-width:900px){.show .grid{grid-template-columns:1fr}.stagewrap{padding-bottom:40px}}
+
 /* ---------- proyectos: recorrido horizontal ---------- */
 .work{padding-top:clamp(100px,12vw,160px);overflow:hidden}
 .work .sec-head{margin-bottom:36px}
 .track-outer{overflow:hidden}
 .track{display:flex;gap:20px;padding-inline:clamp(16px,4vw,40px);width:max-content;padding-bottom:12px}
 .proj{width:min(520px,82vw);flex:none;text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+.proj .devices{position:relative;padding-bottom:26px}
+.proj .devices .phone{width:23%;right:14px;bottom:0;border-radius:20px;padding:4px}
+.proj .devices .phone img{border-radius:16px}
+.proj .devices .phone::before{top:8px;height:8px}
+.proj .chips{display:flex;gap:6px;margin-top:10px}
+.proj .chips span{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--surface);color:var(--ink)}
+.proj .chips svg{width:13px;height:13px}
 .proj .frame{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);aspect-ratio:16/10;position:relative;border:1px solid var(--line)}
 .proj .bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#E9EDF1;border-bottom:1px solid var(--line)}
 .proj .bar i{width:9px;height:9px;border-radius:50%;background:#C9D1D8}
@@ -236,7 +270,7 @@ section{position:relative}
 .proj .mock .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;align-content:start}
 .proj .mock .cal i{aspect-ratio:1.4;border-radius:5px;background:var(--surface)}
 .proj .mock .cal i.b{background:#0A5BFF}.proj .mock .cal i.a{background:#FFD18A}.proj .mock .cal i.g{background:#B8C8F5}
-.proj .lock{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:rgba(12,26,51,.88);color:#fff;font-size:.76rem;font-weight:600;padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.proj .lock{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;background:rgba(12,26,51,.88);color:#fff;font-size:.76rem;font-weight:600;padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .proj .lock svg{width:13px;height:13px}
 .proj .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 4px 0}
 .proj h3{font-size:1.4rem;font-weight:600}
@@ -354,6 +388,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
       <ul>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#casos">Casos</a></li>
+        <li><a href="#webapp">Web y app</a></li>
         <li><a href="#sectores">Sectores</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
@@ -443,8 +478,8 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         </a>
         <a class="axis rise" href="#contacto">
           <img src="img/equipo.jpg" alt="" loading="lazy">
-          <h3>Software y apps a medida</h3>
-          <div class="bot"><p>Web y mobile para tu forma de trabajar: turnos, reservas, legajos, portales.</p><span class="arrow-btn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8"/></svg></span></div>
+          <h3>Apps web a medida</h3>
+          <div class="bot"><p>Funcionan en la compu y en el celular: turnos, reservas, legajos, portales.</p><span class="arrow-btn"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8"/></svg></span></div>
         </a>
         <a class="axis rise" href="#contacto">
           <img src="img/puerto.jpg" alt="" loading="lazy">
@@ -531,12 +566,35 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
     </div>
   </section>
 
+  <!-- WEB Y APP -->
+  <section class="show" id="webapp" aria-labelledby="showT">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <div class="wrap grid">
+      <div>
+        <p class="kicker">Web y app</p>
+        <h2 id="showT">Una sola aplicación, <b>en la compu y en el celular</b></h2>
+        <p class="lead">Desarrollamos aplicaciones web: se usan desde cualquier navegador, se adaptan a cada pantalla y mantienen los datos sincronizados entre la oficina y el campo.</p>
+        <ul class="feats">
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5"/><rect x="17" y="8" width="5" height="12" rx="1.2"/><path d="M6 18h6"/></svg></i><div><b>Se adapta a cualquier pantalla</b><span>Computadora, tablet o celular, con la misma información.</span></div></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></i><div><b>Sin instalar nada</b><span>Se entra desde el navegador y se puede agregar al inicio del celular como una app.</span></div></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></i><div><b>Acceso seguro por usuario</b><span>Cada persona ve lo que le corresponde según su perfil.</span></div></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></i><div><b>Datos en tiempo real</b><span>Lo que se carga en la guardia o el mostrador lo ve la dirección al instante.</span></div></li>
+        </ul>
+      </div>
+      <div class="stagewrap rise">
+        <div class="laptop"><div class="scr"><img src="img/sys-hoteles.jpg" alt="Gestión Hotelera en computadora" loading="lazy"></div><div class="base"></div></div>
+        <div class="phone ph2"><img src="img/m-hospital.jpg" alt="Sistema del Hospital El Cruce en celular" loading="lazy"></div>
+        <div class="phone ph1"><img src="img/m-hoteles.jpg" alt="Gestión Hotelera en celular" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROYECTOS -->
   <section class="work" id="proyectos" aria-labelledby="workT">
     <div class="wrap">
       <div class="sec-head">
         <div><p class="kicker">Proyectos</p><h2 id="workT">Trabajo <b>en producción</b></h2></div>
-        <p class="lead">Sistemas internos de clientes y plataformas abiertas al público. Cada uno empezó con alguien que lo tenía en la cabeza.</p>
+        <p class="lead">Apps web en uso todos los días, en la compu y en el celular. Sistemas internos de clientes y plataformas abiertas al público.</p>
       </div>
     </div>
     <div class="track-outer" id="trackOuter">
@@ -684,15 +742,15 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
 
   /* ---------------- proyectos ---------------- */
   var PROJECTS = [
-    { name: 'Bitácora', sector: 'Puerto · Practicaje y Pilotaje Buenos Aires', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'sistema interno' },
-    { name: 'Administración integral', sector: 'Hospital El Cruce', desc: 'Contabilidad, finanzas, patrimonio, cuentas a pagar, impuestos y RRHH en uno.', url: 'sistema interno' },
-    { name: 'Presupuesto plurianual', sector: 'Trenes Argentinos Operaciones', desc: 'Tablero de techos, ejecución y proyectos con exportación a Excel, PDF y PowerPoint.', url: 'tablero interno' },
-    { name: 'Atlas Político Mundial', sector: 'Datos y cartografía', desc: '197 países: sistemas electorales, gobiernos e indicadores comparados.', url: 'atlaspoliticoelectoral.com', href: 'https://atlaspoliticoelectoral.com/', img: 'img/atlas.jpg' },
-    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express Plus', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott Buenos Aires.', url: 'sistema interno' },
-    { name: 'Administración ABSA', sector: 'Aguas Bonaerenses', desc: 'Circuitos, registros y reportes para la gestión administrativa.', url: 'sistema interno' },
-    { name: 'Trabajar en Saladillo', sector: 'Empleo regional', desc: 'Bolsa de empleo con análisis de CV por inteligencia artificial.', url: 'trabajarensaladillo.com', href: 'https://trabajarensaladillo.com/', img: 'img/saladillo.jpg' },
-    { name: 'Control Profeed', sector: 'Control de gestión', desc: 'Seguimiento y control con indicadores para decidir a tiempo.', url: 'sistema interno' },
-    { name: 'Sistema GGA', sector: 'Gestión integral', desc: 'Sistema de gestión desarrollado a medida de la operación.', url: 'sistema interno' }
+    { name: 'Bitácora', sector: 'Puerto · Practicaje y Pilotaje Buenos Aires', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'Plataforma Bitácora · acceso privado', img: 'img/sys-bitacora.jpg', phone: 'img/m-bitacora.jpg' },
+    { name: 'Administración integral', sector: 'Hospital El Cruce', desc: 'Contabilidad, finanzas, patrimonio, cuentas a pagar, impuestos y RRHH en uno.', url: 'Tablero de Gestión HEC · acceso privado', img: 'img/sys-hospital.jpg', phone: 'img/m-hospital.jpg' },
+    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express Plus', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott Buenos Aires.', url: 'hoteles.ltelc.tech', img: 'img/sys-hoteles.jpg', phone: 'img/m-hoteles.jpg' },
+    { name: 'Atlas Político Mundial', sector: 'Datos y cartografía', desc: '197 países: sistemas electorales, gobiernos e indicadores comparados.', url: 'atlaspoliticoelectoral.com', href: 'https://atlaspoliticoelectoral.com/', img: 'img/atlas.jpg', phone: 'img/m-atlas.jpg' },
+    { name: 'Panel de gestión ABSA', sector: 'Aguas Bonaerenses', desc: 'Panel administrativo con acceso corporativo, reportes y seguimiento.', url: 'Panel ABSA · acceso privado', img: 'img/sys-absa.jpg', phone: 'img/m-absa.jpg' },
+    { name: 'Sistema GGA', sector: 'Trenes Argentinos Operaciones', desc: 'Sistema de administración para la gestión de la operadora ferroviaria.', url: 'GGA SOFSA · acceso privado', img: 'img/sys-gga.jpg', phone: 'img/m-gga.jpg' },
+    { name: 'Control Profeed', sector: 'Profeed Saladillo S.A.', desc: 'Sistema de control interno con indicadores para decidir a tiempo.', url: 'controlprofeed.com', img: 'img/sys-profeed.jpg', phone: 'img/m-profeed.jpg' },
+    { name: 'Trabajar en Saladillo', sector: 'Empleo regional', desc: 'Bolsa de empleo con análisis de CV por inteligencia artificial.', url: 'trabajarensaladillo.com', href: 'https://trabajarensaladillo.com/', img: 'img/saladillo.jpg', phone: 'img/m-saladillo.jpg' },
+    { name: 'Presupuesto plurianual', sector: 'Trenes Argentinos Operaciones', desc: 'Tablero de techos, ejecución y proyectos con exportación a Excel, PDF y PowerPoint.', url: 'tablero interno' }
   ];
   var arrowSvg = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8"/></svg>';
   var lockSvg = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>';
@@ -711,12 +769,17 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
     }
     return '<div class="mock" aria-hidden="true">' + side + '<div class="main">' + inner + '</div></div>';
   }
+  var webSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 20h8"/></svg>';
+  var mobSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17h2"/></svg>';
   document.getElementById('track').innerHTML = PROJECTS.map(function(p, i){
     var tag = p.href ? 'a' : 'article', attrs = p.href ? ' href="' + p.href + '" target="_blank" rel="noopener"' : '';
-    var body = p.img ? '<div class="shot"><img src="' + p.img + '" alt="Captura de ' + esc(p.name) + '" loading="lazy"></div>'
+    var priv = !p.href && !/\./.test(p.url.split(' ')[0]);
+    var body = p.img ? '<div class="shot"><img src="' + p.img + '" alt="' + esc(p.name) + ' en computadora" loading="lazy"></div>' + (priv ? '<span class="lock">' + lockSvg + 'Acceso con usuario</span>' : '')
                      : mock(i) + '<span class="lock">' + lockSvg + 'Sistema de uso interno</span>';
-    return '<' + tag + ' class="proj"' + attrs + '><div class="frame"><div class="bar"><i></i><i></i><i></i><span>' + esc(p.url) + '</span></div>' + body + '</div>' +
-      '<div class="meta"><div><div class="sector-tag">' + esc(p.sector) + '</div><h3>' + esc(p.name) + '</h3><p>' + esc(p.desc) + '</p></div>' +
+    var phone = p.phone ? '<div class="phone"><img src="' + p.phone + '" alt="' + esc(p.name) + ' en celular" loading="lazy"></div>' : '';
+    var chips = '<div class="chips"><span>' + webSvg + 'Web</span>' + (p.phone ? '<span>' + mobSvg + 'Celular</span>' : '') + '</div>';
+    return '<' + tag + ' class="proj"' + attrs + '><div class="devices"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>' + esc(p.url) + '</span></div>' + body + '</div>' + phone + '</div>' +
+      '<div class="meta"><div><div class="sector-tag">' + esc(p.sector) + '</div><h3>' + esc(p.name) + '</h3><p>' + esc(p.desc) + '</p>' + chips + '</div>' +
       (p.href ? '<span class="go">' + arrowSvg + '</span>' : '') + '</div></' + tag + '>';
   }).join('');
 
@@ -913,6 +976,10 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
   gsap.utils.toArray('.rise').forEach(function(el, i){
     gsap.to(el, { y: 0, opacity: 1, duration: 1.1, ease: 'expo.out', delay: (i % 3) * 0.08, scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
+
+  // web y app: los celulares se desplazan a distinta velocidad
+  gsap.to('.show .ph1', { y: -70, ease: 'none', scrollTrigger: { trigger: '.show', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('.show .ph2', { y: -30, ease: 'none', scrollTrigger: { trigger: '.show', start: 'top bottom', end: 'bottom top', scrub: true } });
 
   // contadores
   document.querySelectorAll('[data-count]').forEach(function(el){
