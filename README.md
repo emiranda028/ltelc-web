@@ -39,4 +39,4 @@ El sitio usa `agencialtelc@gmail.com` y el WhatsApp +54 9 11 5706-2947 (bloque `
 ## Créditos de imágenes
 - Fotos de ambiente: Unsplash (licencia Unsplash, uso comercial libre).
 - Fachada del Hospital El Cruce (`img/salud-cruce.jpg`): Mariano Puentes, Wikimedia Commons, dominio público.
-- Logos de clientes (`img/logos/`): marcas de sus titulares, usadas para identificar clientes. Confirmar autorización de cada uno antes de publicar. Faltan los archivos de Hospital El Cruce y City Express by Marriott (hoy se muestran como texto).
+- Logos de clientes (`img/logos/`): marcas de sus titulares, usadas para identificar clientes. Confirmar autorización de cada uno antes de publicar. Falta el archivo de Hospital El Cruce (hoy se muestra como texto). Foto de City Express Plus y logos de Profeed y Practicaje: provistos por LTELC.

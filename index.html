@@ -111,6 +111,8 @@ section{position:relative}
 .client svg{width:30px;height:30px;flex:none}
 .client img{width:auto;max-width:210px;filter:brightness(0);opacity:.62;transition:opacity .2s ease}
 .client:hover img{opacity:.85}
+.client img.raster{filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply;opacity:.72}
+.client:hover img.raster{opacity:1}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---------- ejes de solución ---------- */
@@ -387,9 +389,9 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 4v22M4 15h22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>Hospital El Cruce</span>
         <span class="client"><img src="img/logos/absa.png" alt="ABSA Aguas Bonaerenses" style="height:42px"></span>
         <span class="client"><img src="img/logos/sheraton.svg" alt="Sheraton Bariloche y Sheraton Mar del Plata" style="height:44px"></span>
-        <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 20c4 4 18 4 22 0M15 4v16M9 11h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Cooperativa de Practicaje</span>
-        <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 25V11l10-6 10 6v14M11 25v-7h8v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>City Express by Marriott</span>
-        <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 17l4-6 6 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Profeed</span>
+        <span class="client"><img class="raster" src="img/logos/practicaje.jpg" alt="Practicaje y Pilotaje Buenos Aires" style="height:46px"></span>
+        <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 25V11l10-6 10 6v14M11 25v-7h8v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>City Express Plus by Marriott</span>
+        <span class="client"><img class="raster" src="img/logos/profeed.jpg" alt="Profeed" style="height:58px"></span>
         <span class="client"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M6 21q9-15 18 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="8" cy="10" r="3" fill="currentColor"/><circle cx="22" cy="10" r="3" fill="currentColor"/></svg>Trabajar en Saladillo</span>
       </div>
     </div>
@@ -460,7 +462,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         <article class="sector rise"><div class="ph"><img src="img/transporte.jpg" alt="Formación ferroviaria" loading="lazy"></div><h3>Transporte ferroviario</h3><p>Presupuesto, ejecución y planificación plurianual.</p></article>
         <article class="sector rise"><div class="ph"><img src="img/puerto.jpg" alt="Puerto visto desde el aire" loading="lazy"></div><h3>Puertos y practicaje</h3><p>Bitácora: guardia, operación y facturación sin papel.</p></article>
         <article class="sector rise"><div class="ph"><img src="img/salud-cruce.jpg" alt="Fachada del Hospital El Cruce" loading="lazy"></div><h3>Salud</h3><p>Administración integral del Hospital El Cruce.</p></article>
-        <article class="sector rise"><div class="ph"><img src="img/hoteleria.jpg" alt="Hotel con piscina al atardecer" loading="lazy"></div><h3>Hotelería</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express by Marriott.</p></article>
+        <article class="sector rise"><div class="ph"><img src="img/hoteleria-cityexpress.jpg" alt="Fachada del City Express Plus by Marriott Buenos Aires" loading="lazy"></div><h3>Hotelería</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott.</p></article>
       </div>
     </div>
   </section>
@@ -475,7 +477,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
 
       <article class="case rise">
         <div>
-          <span class="tag">Puerto · Cooperativa de Practicaje</span>
+          <span class="tag">Puerto · Practicaje y Pilotaje Buenos Aires</span>
           <h3><b>Bitácora</b>, la operación del puerto sin papel</h3>
           <p>Resuelve todo de punta a punta: desde la guardia y la operación diaria hasta la facturación. Se dejó el papel y cada registro se sincroniza solo con el sistema de facturación.</p>
           <div class="outs"><span>Sin papel</span><span>Sincronización automática</span><span>Facturación integrada</span><span>Todo en 1</span></div>
@@ -628,11 +630,11 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
 
   /* ---------------- proyectos ---------------- */
   var PROJECTS = [
-    { name: 'Bitácora', sector: 'Puerto · Cooperativa de Practicaje', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'sistema interno' },
+    { name: 'Bitácora', sector: 'Puerto · Practicaje y Pilotaje Buenos Aires', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'sistema interno' },
     { name: 'Administración integral', sector: 'Hospital El Cruce', desc: 'Contabilidad, finanzas, patrimonio, cuentas a pagar, impuestos y RRHH en uno.', url: 'sistema interno' },
     { name: 'Presupuesto plurianual', sector: 'Trenes Argentinos Operaciones', desc: 'Tablero de techos, ejecución y proyectos con exportación a Excel, PDF y PowerPoint.', url: 'tablero interno' },
     { name: 'Atlas Político Mundial', sector: 'Datos y cartografía', desc: '197 países: sistemas electorales, gobiernos e indicadores comparados.', url: 'atlaspoliticoelectoral.com', href: 'https://atlaspoliticoelectoral.com/', img: 'img/atlas.jpg' },
-    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express by Marriott Buenos Aires.', url: 'sistema interno' },
+    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express Plus', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott Buenos Aires.', url: 'sistema interno' },
     { name: 'Administración ABSA', sector: 'Aguas Bonaerenses', desc: 'Circuitos, registros y reportes para la gestión administrativa.', url: 'sistema interno' },
     { name: 'Trabajar en Saladillo', sector: 'Empleo regional', desc: 'Bolsa de empleo con análisis de CV por inteligencia artificial.', url: 'trabajarensaladillo.com', href: 'https://trabajarensaladillo.com/', img: 'img/saladillo.jpg' },
     { name: 'Control Profeed', sector: 'Control de gestión', desc: 'Seguimiento y control con indicadores para decidir a tiempo.', url: 'sistema interno' },
