@@ -222,7 +222,7 @@ section{position:relative}
 .laptop .base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;transform:translateX(-50%);background:#AEB7C0;border-radius:0 0 8px 8px}
 .phone{position:absolute;aspect-ratio:9/19.5;border-radius:26px;background:#0B0F14;padding:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.75),inset 0 0 0 1px #2A3442}
 .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:20px}
-.phone::before{content:"";position:absolute;left:50%;top:11px;width:28%;height:12px;transform:translateX(-50%);background:#0B0F14;border-radius:999px;z-index:1}
+.phone::before{content:"";position:absolute;left:50%;top:9px;width:26%;height:9px;transform:translateX(-50%);background:#0B0F14;border-radius:999px;z-index:1;opacity:.9}
 .show .ph1{width:25%;right:0;bottom:0}
 .show .ph2{width:22%;right:24%;bottom:-14px}
 @media (max-width:900px){.show .grid{grid-template-columns:1fr}.stagewrap{padding-bottom:40px}}
@@ -583,8 +583,8 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
       </div>
       <div class="stagewrap rise">
         <div class="laptop"><div class="scr"><img src="img/sys-hoteles.jpg" alt="Gestión Hotelera en computadora" loading="lazy"></div><div class="base"></div></div>
-        <div class="phone ph2"><img src="img/m-hospital.jpg" alt="Sistema del Hospital El Cruce en celular" loading="lazy"></div>
-        <div class="phone ph1"><img src="img/m-hoteles.jpg" alt="Gestión Hotelera en celular" loading="lazy"></div>
+        <div class="phone ph2"><img src="img/m-bitacora-app.jpg" alt="Bitácora: despachos del puerto en celular" loading="lazy"></div>
+        <div class="phone ph1"><img src="img/m-hoteles-ventas.jpg" alt="Gestión Hotelera: tablero de ventas en celular" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -742,9 +742,9 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
 
   /* ---------------- proyectos ---------------- */
   var PROJECTS = [
-    { name: 'Bitácora', sector: 'Puerto · Practicaje y Pilotaje Buenos Aires', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'Plataforma Bitácora · acceso privado', img: 'img/sys-bitacora.jpg', phone: 'img/m-bitacora.jpg' },
+    { name: 'Bitácora', sector: 'Puerto · Practicaje y Pilotaje Buenos Aires', desc: 'De punta a punta: guardia, operación y facturación sincronizadas, sin papel.', url: 'Plataforma Bitácora · acceso privado', img: 'img/sys-bitacora.jpg', phone: 'img/m-bitacora-app.jpg' },
     { name: 'Administración integral', sector: 'Hospital El Cruce', desc: 'Contabilidad, finanzas, patrimonio, cuentas a pagar, impuestos y RRHH en uno.', url: 'Tablero de Gestión HEC · acceso privado', img: 'img/sys-hospital.jpg', phone: 'img/m-hospital.jpg' },
-    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express Plus', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott Buenos Aires.', url: 'hoteles.ltelc.tech', img: 'img/sys-hoteles.jpg', phone: 'img/m-hoteles.jpg' },
+    { name: 'Gestión hotelera', sector: 'Marriott · Sheraton · City Express Plus', desc: 'Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott Buenos Aires.', url: 'hoteles.ltelc.tech', img: 'img/sys-hoteles.jpg', phone: 'img/m-hoteles-flash.jpg' },
     { name: 'Atlas Político Mundial', sector: 'Datos y cartografía', desc: '197 países: sistemas electorales, gobiernos e indicadores comparados.', url: 'atlaspoliticoelectoral.com', href: 'https://atlaspoliticoelectoral.com/', img: 'img/atlas.jpg', phone: 'img/m-atlas.jpg' },
     { name: 'Panel de gestión ABSA', sector: 'Aguas Bonaerenses', desc: 'Panel administrativo con acceso corporativo, reportes y seguimiento.', url: 'Panel ABSA · acceso privado', img: 'img/sys-absa.jpg', phone: 'img/m-absa.jpg' },
     { name: 'Sistema GGA', sector: 'Trenes Argentinos Operaciones', desc: 'Sistema de administración para la gestión de la operadora ferroviaria.', url: 'GGA SOFSA · acceso privado', img: 'img/sys-gga.jpg', phone: 'img/m-gga.jpg' },
