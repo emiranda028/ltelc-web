@@ -262,6 +262,30 @@ section{position:relative}
 .acr span b{color:var(--blue);font-weight:800;font-size:1.3em}
 @media (max-width:860px){.about .grid{grid-template-columns:1fr}}
 
+
+/* ---------- equipo ---------- */
+.team{padding-top:clamp(80px,9vw,120px)}
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.member{background:var(--surface);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:14px;position:relative}
+.member.lead{background:var(--navy);color:var(--on-navy)}
+.avatar{width:72px;height:72px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.4rem;letter-spacing:.02em;position:relative}
+.avatar::after{content:"";position:absolute;right:2px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--surface)}
+.member.lead .avatar{background:var(--blue)}
+.member.lead .avatar::after{box-shadow:0 0 0 3px var(--navy)}
+.member .role{font-size:.85rem;font-weight:700;color:var(--blue);letter-spacing:.01em}
+.member.lead .role{color:#7FA6FF}
+.member h3{font-size:1.5rem;font-weight:600;letter-spacing:-.02em}
+.member p{margin:0;color:var(--muted);font-size:.97rem}
+.member.lead p{color:var(--on-navy-muted)}
+.member .skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.member .skills span{font-size:.76rem;font-weight:600;padding:5px 11px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.member.lead .skills span{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--navy-line);color:var(--on-navy)}
+.member .in{position:absolute;right:22px;top:24px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s ease,color .2s ease}
+.member .in:hover{background:#0A66C2;color:#fff;box-shadow:none}
+.member.lead .in{color:var(--on-navy-muted);box-shadow:inset 0 0 0 1px var(--navy-line)}
+.member .in svg{width:17px;height:17px}
+@media (max-width:900px){.team-grid{grid-template-columns:1fr}}
+
 /* ---------- proceso (pestañas) ---------- */
 .process{margin:clamp(100px,12vw,160px) clamp(8px,1.4vw,18px) 0;border-radius:var(--r-xl);background:#0B0F14;color:#F2F5F8;padding-block:clamp(70px,9vw,110px);overflow:hidden;position:relative;isolation:isolate}
 .process::before{content:"";position:absolute;z-index:-1;right:-200px;bottom:-260px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,181,71,.38),transparent 65%)}
@@ -340,6 +364,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         <li><a href="#sectores">Sectores</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#equipo">Equipo</a></li>
       </ul>
     </nav>
     <a class="pill pill-blue" href="#contacto">Contacto</a>
@@ -538,6 +563,42 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         <p>Nuestro trabajo es convertir ese conocimiento en un sistema que funcione igual aunque esa persona esté de vacaciones.</p>
         <div class="acr" aria-label="Lo Tengo En La Cabeza"><span><b>L</b>o</span><span><b>T</b>engo</span><span><b>E</b>n</span><span><b>L</b>a</span><span><b>C</b>abeza</span></div>
         <a class="pill pill-blue" href="#contacto">Hablemos de tu proyecto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="team" id="equipo" aria-labelledby="teamT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="kicker">Equipo</p><h2 id="teamT">Operación, finanzas y tecnología <b>en la misma mesa</b></h2></div>
+        <p class="lead">Un equipo compacto que entiende cómo funciona una organización por dentro y lo convierte en sistemas que se usan todos los días.</p>
+      </div>
+      <div class="team-grid">
+        <article class="member lead rise">
+          <a class="in" href="https://www.linkedin.com/in/emiranda028/" target="_blank" rel="noopener" aria-label="LinkedIn de Emmanuel Miranda"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg></a>
+          <span class="avatar" aria-hidden="true">EM</span>
+          <div><div class="role">Fundador · Director de Arquitectura de Negocio y Transformación Digital</div></div>
+          <h3>Mg. Emmanuel Miranda</h3>
+          <p>Entiende la operación en todos sus niveles, de la guardia y el mostrador a la dirección, y la traduce en sistemas, procesos e indicadores. Diseña cada solución de punta a punta y lidera su implementación.</p>
+          <div class="skills"><span>Estrategia</span><span>Procesos</span><span>Arquitectura de sistemas</span><span>Datos e indicadores</span></div>
+        </article>
+        <article class="member rise">
+          <a class="in" href="https://www.linkedin.com/in/fabi%C3%A1n-rodolfo-alvarez-7b75886a/" target="_blank" rel="noopener" aria-label="LinkedIn de Fabián R. Álvarez"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg></a>
+          <span class="avatar" aria-hidden="true">FA</span>
+          <div><div class="role">Socio · Director de Administración, Finanzas y Contabilidad</div></div>
+          <h3>Fabián R. Álvarez</h3>
+          <p>Lidera el frente administrativo y contable: presupuesto, contabilidad, balances, cuentas a pagar e impuestos. Se asegura de que cada sistema cierre con los números y cumpla la normativa.</p>
+          <div class="skills"><span>Contabilidad</span><span>Presupuesto</span><span>Finanzas</span><span>Impuestos</span></div>
+        </article>
+        <article class="member rise">
+          <a class="in" href="https://www.linkedin.com/in/gustavo-andres-maida-652ab935/" target="_blank" rel="noopener" aria-label="LinkedIn de Gustavo Maida"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg></a>
+          <span class="avatar" aria-hidden="true">GM</span>
+          <div><div class="role">Socio · Líder de Control de Gestión y Sistemas Administrativos</div></div>
+          <h3>Gustavo A. Maida</h3>
+          <p>Especialista en circuitos administrativos y control de gestión: releva procesos, define controles y convierte la información en tableros que ayudan a decidir.</p>
+          <div class="skills"><span>Control de gestión</span><span>Circuitos administrativos</span><span>Tableros</span><span>Calidad de datos</span></div>
+        </article>
       </div>
     </div>
   </section>
