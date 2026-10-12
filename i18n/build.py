@@ -260,6 +260,8 @@ T = [
  '<h4>Setores</h4><ul><li><a href="#sectores">Transporte</a></li><li><a href="#sectores">Portos</a></li><li><a href="#sectores">Saúde</a></li><li><a href="#sectores">Hotelaria</a></li><li><a href="#sectores">Água e saneamento</a></li></ul>'),
 ('<h4>Contacto</h4>', '<h4>Contact</h4>', '<h4>Contato</h4>'),
 ('>Formulario<', '>Contact form<', '>Formulário<'),
+('<small>¿Ya sos cliente?</small><strong>Soporte y reclamos</strong>', '<small>Already a client?</small><strong>Support &amp; tickets</strong>', '<small>Já é cliente?</small><strong>Suporte e chamados</strong>'),
+('>Soporte a clientes<', '>Client support<', '>Suporte a clientes<'),
 ]
 
 LANGS = {

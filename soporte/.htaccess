@@ -1,0 +1,8 @@
+# Soporte LTELC: nada de esto se sirve directo
+Options -Indexes
+RewriteEngine On
+RewriteRule ^(lib|uploads)(/|$) - [F,L]
+RewriteRule ^config(\.sample)?\.php$ - [F,L]
+<FilesMatch "\.(md|sql|log|lock)$">
+  Require all denied
+</FilesMatch>
