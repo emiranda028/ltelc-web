@@ -318,11 +318,19 @@ section{position:relative}
 .member{background:var(--surface);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:14px;position:relative}
 .avatar{width:72px;height:72px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.4rem;letter-spacing:.02em;position:relative}
 .avatar::after{content:"";position:absolute;right:2px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--surface)}
+.member .cred{font-size:.84rem;color:var(--ink);font-weight:500;margin:-4px 0 0}
+.member .mlabel{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.member .skills{margin-top:0;padding-top:0}
+.member .skills.tools span{background:var(--navy);color:#fff;box-shadow:none}
+.team-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px;padding:24px 28px;border-radius:var(--r-lg);background:var(--navy);color:var(--on-navy)}
+.team-stack h4{margin:0 0 10px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7FA6FF}
+.team-stack p{margin:0;font-size:.95rem;color:var(--on-navy)}
+@media (max-width:900px){.team-stack{grid-template-columns:1fr}}
 .member .intl{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.01em;margin-top:3px}
 .member .role{font-size:.85rem;font-weight:700;color:var(--blue);letter-spacing:.01em}
 .member h3{font-size:1.5rem;font-weight:600;letter-spacing:-.02em}
 .member p{margin:0;color:var(--muted);font-size:.97rem}
-.member .skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.member .skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0}
 .member .skills span{font-size:.76rem;font-weight:600;padding:5px 11px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
 .member .in{position:absolute;right:22px;top:24px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s ease,color .2s ease}
 .member .in:hover{background:#0A66C2;color:#fff;box-shadow:none}
@@ -649,25 +657,40 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
           <span class="avatar" aria-hidden="true">EM</span>
           <div><div class="role">Socio fundador · Asuntos Públicos y Transformación Digital</div><div class="intl">Founding Partner · Public Affairs &amp; GovTech</div></div>
           <h3>Mg. Emmanuel Miranda</h3>
-          <p>Especialista en asuntos públicos, sector público y organizaciones de la sociedad civil. Entiende la operación en todos sus niveles y la traduce en sistemas, procesos e indicadores. También diseña campañas electorales y encuestas de opinión.</p>
-          <div class="skills"><span>Asuntos públicos</span><span>Sector público</span><span>Sociedad civil</span><span>Arquitectura de sistemas</span></div>
+          <p class="cred">Mg. en Estudios Electorales (UNSAM) · Lic. en Ciencia Política (UCA)</p>
+          <p>Más de 10 años en control de gestión y presupuesto en organizaciones públicas y privadas. Une la operación con la administración en sistemas, tableros e IA aplicada. También diseña campañas electorales y encuestas.</p>
+          <div class="mlabel">Especialidades</div>
+          <div class="skills"><span>Asuntos públicos</span><span>Control de gestión</span><span>Business Intelligence</span><span>Sociedad civil</span></div>
+          <div class="mlabel">Herramientas</div>
+          <div class="skills tools"><span>Power BI · DAX</span><span>SQL</span><span>Python</span><span>Data Science</span><span>IA generativa</span></div>
         </article>
         <article class="member rise">
           <a class="in" href="https://www.linkedin.com/in/fabi%C3%A1n-rodolfo-alvarez-7b75886a/" target="_blank" rel="noopener" aria-label="LinkedIn de Fabián R. Álvarez"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg></a>
           <span class="avatar" aria-hidden="true">FA</span>
           <div><div class="role">Socio · Finanzas y Contabilidad</div><div class="intl">Partner · Finance &amp; Accounting — Media, Telecom &amp; Transport</div></div>
           <h3>Lic. Fabián R. Álvarez</h3>
-          <p>Experto en contabilidad, conciliaciones e impuestos para empresas y pymes de los sectores de comunicación y transporte. Se asegura de que cada sistema cierre con los números.</p>
-          <div class="skills"><span>Contabilidad</span><span>Conciliaciones</span><span>Impuestos</span><span>Comunicación y transporte</span></div>
+          <p>Experto en contabilidad, conciliaciones e impuestos para empresas y pymes de los sectores de comunicación y transporte. Implementa y opera sistemas ERP y CRM, y se asegura de que cada sistema cierre con los números.</p>
+          <div class="mlabel">Especialidades</div>
+          <div class="skills"><span>Contabilidad</span><span>Conciliaciones</span><span>Impuestos</span><span>Cierres contables</span></div>
+          <div class="mlabel">Herramientas</div>
+          <div class="skills tools"><span>SAP</span><span>Tango</span><span>CRM</span><span>Excel avanzado</span></div>
         </article>
         <article class="member rise">
           <a class="in" href="https://www.linkedin.com/in/gustavo-andres-maida-652ab935/" target="_blank" rel="noopener" aria-label="LinkedIn de Gustavo Maida"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg></a>
           <span class="avatar" aria-hidden="true">GM</span>
           <div><div class="role">Socio · Control de Gestión y Finanzas</div><div class="intl">Partner · Financial Control &amp; Reporting — Energy</div></div>
           <h3>Lic. Gustavo A. Maida</h3>
-          <p>Experto en conciliaciones, circuitos administrativos y control de gestión para empresas del sector energético. Convierte la información en tableros que ayudan a decidir.</p>
-          <div class="skills"><span>Conciliaciones</span><span>Control de gestión</span><span>Sector energético</span><span>Tableros</span></div>
+          <p>Experto en conciliaciones, circuitos administrativos y control de gestión para empresas del sector energético. Trabaja sobre ERP y CRM y convierte la información en reportes y tableros que ayudan a decidir.</p>
+          <div class="mlabel">Especialidades</div>
+          <div class="skills"><span>Conciliaciones</span><span>Control de gestión</span><span>Circuitos administrativos</span><span>Reporting</span></div>
+          <div class="mlabel">Herramientas</div>
+          <div class="skills tools"><span>SAP</span><span>Tango</span><span>CRM</span><span>Power BI</span></div>
         </article>
+      </div>
+      <div class="team-stack rise">
+        <div><h4>Cubrimos</h4><p>Operación, administración, contabilidad, finanzas, control de gestión, datos y desarrollo.</p></div>
+        <div><h4>Sectores</h4><p>Sector público, sociedad civil, transporte, comunicación, energía, salud, hotelería y puertos.</p></div>
+        <div><h4>Herramientas</h4><p>Power BI, SQL, Python, SAP, Tango, CRM, Excel avanzado e IA generativa.</p></div>
       </div>
     </div>
   </section>
