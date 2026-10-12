@@ -40,3 +40,8 @@ El sitio usa `agencialtelc@gmail.com` y el WhatsApp +54 9 11 5706-2947 (bloque `
 - Fotos de ambiente: Unsplash (licencia Unsplash, uso comercial libre).
 - Fachada del Hospital El Cruce (`img/salud-cruce.jpg`): Mariano Puentes, Wikimedia Commons, dominio público.
 - Logos de clientes (`img/logos/`): marcas de sus titulares, usadas para identificar clientes. Confirmar autorización de cada uno antes de publicar. Falta el archivo de Hospital El Cruce (hoy se muestra como texto). Foto de City Express Plus y logos de Profeed y Practicaje: provistos por LTELC.
+
+## Idiomas (ES · EN · PT)
+- `index.html` es la versión en español y la fuente de las demás.
+- `en/index.html` y `pt/index.html` se generan con `python3 i18n/build.py`, que reemplaza cada texto en español por su traducción (tabla `T` del script).
+- Al cambiar un texto en español, actualizar la fila correspondiente en `i18n/build.py` y volver a correr el script. Si un texto ya no coincide, el script avisa cuál.
