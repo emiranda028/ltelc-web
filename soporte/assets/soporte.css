@@ -74,6 +74,7 @@ input[type=file]{font:inherit;font-size:.9rem}
 .steps li::before{content:counter(s);width:24px;height:24px;border-radius:50%;background:#1C2C4A;color:#fff;display:grid;place-items:center;font-size:.78rem;flex:none}
 @media (max-width:900px){.hero{grid-template-columns:1fr}}
 .lead{color:var(--muted);margin:10px 0 24px;max-width:46em}
+.from-app{margin:14px 0 0;padding:10px 14px;border-radius:12px;background:#EEF3FF;color:var(--blue-ink);font-size:.92rem}
 .done{text-align:center;max-width:620px;margin:20px auto}
 .done .num{display:inline-block;font-size:1.6rem;font-weight:800;letter-spacing:.04em;background:var(--navy);color:#fff;border-radius:14px;padding:10px 20px;margin:16px 0}
 

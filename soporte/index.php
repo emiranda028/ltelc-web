@@ -4,6 +4,15 @@ if (!schema_ready()) redirect('instalar.php');
 
 $err = null;
 $v = ['nombre' => '', 'email' => '', 'organizacion' => '', 'sistema' => '', 'prioridad' => 'normal', 'asunto' => '', 'detalle' => ''];
+// Precarga desde las aplicaciones (botón «Soporte»): ?sistema=…&nombre=…&email=…&organizacion=…
+$desde = '';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    foreach (['nombre' => 120, 'email' => 190, 'organizacion' => 160] as $k => $max) {
+        if (isset($_GET[$k])) $v[$k] = mb_substr(trim((string)$_GET[$k]), 0, $max);
+    }
+    if (!filter_var($v['email'], FILTER_VALIDATE_EMAIL)) $v['email'] = '';
+    if (isset($_GET['sistema']) && in_array((string)$_GET['sistema'], systems(), true)) $desde = $v['sistema'] = (string)$_GET['sistema'];
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
     foreach ($v as $k => $_) $v[$k] = trim((string)($_POST[$k] ?? ''));
@@ -29,6 +38,7 @@ $hrs = cfg('hours');
 <div class="hero">
   <section class="card">
     <h1>Contanos qué <b>está pasando</b></h1>
+    <?php if ($desde): ?><p class="from-app">Abriste el reclamo desde <b><?= h($desde) ?></b>. Ya completamos lo que sabemos; revisalo y contanos qué pasa.</p><?php endif; ?>
     <p class="lead">Cargá tu reclamo o consulta y te damos un número de seguimiento. Todo queda registrado en un solo lugar y te avisamos por mail cada vez que haya una respuesta.</p>
     <?php if ($err): ?><div class="flash flash-error" role="alert"><?= h($err) ?></div><?php endif; ?>
     <form method="post" enctype="multipart/form-data" novalidate>

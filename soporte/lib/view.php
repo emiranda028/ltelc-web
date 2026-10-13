@@ -4,7 +4,7 @@ declare(strict_types=1);
 function page_head(string $title, string $area = 'public'): void
 {
     $u = $area === 'panel' ? staff() : null;
-    $css = base_url('assets/soporte.css') . '?v=3';
+    $css = base_url('assets/soporte.css') . '?v=4';
     echo '<!DOCTYPE html><html lang="es-AR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">';
     echo '<title>' . h($title) . ' · Soporte LTELC</title><meta name="robots" content="noindex">';
     echo '<link rel="icon" href="' . h(base_url('../favicon.svg')) . '" type="image/svg+xml">';
