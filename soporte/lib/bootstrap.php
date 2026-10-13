@@ -3,15 +3,23 @@ declare(strict_types=1);
 
 define('LT_ROOT', dirname(__DIR__));
 
-// La configuración (claves) vive FUERA de public_html para que el deploy desde GitHub no la toque:
-// /home/usuario/domains/ltelc.tech/soporte-config.php  (o config.php junto a este sistema, o LT_SOPORTE_CONFIG)
+// La configuración (claves) vive FUERA de public_html para que el deploy desde GitHub no la toque.
+// Se busca soporte-config.php en la carpeta personal del hosting (/home/usuario/) y en las carpetas
+// superiores a este sistema; también sirve config.php junto al sistema o la variable LT_SOPORTE_CONFIG.
 $cfgFile = getenv('LT_SOPORTE_CONFIG') ?: '';
-foreach ([dirname(LT_ROOT, 2) . '/soporte-config.php', LT_ROOT . '/config.php'] as $cand) {
-    if ($cfgFile === '' && is_file($cand)) $cfgFile = $cand;
+$cands = [];
+$home = getenv('HOME') ?: (function_exists('posix_getpwuid') ? (posix_getpwuid(posix_geteuid())['dir'] ?? '') : '');
+if ($home) $cands[] = rtrim($home, '/') . '/soporte-config.php';
+if (preg_match('~^(/home/[^/]+)/~', LT_ROOT, $m)) $cands[] = $m[1] . '/soporte-config.php';
+for ($d = dirname(LT_ROOT); $d !== dirname($d); $d = dirname($d)) $cands[] = $d . '/soporte-config.php';
+$cands[] = LT_ROOT . '/config.php';
+foreach ($cands as $cand) {
+    if ($cfgFile === '' && @is_file($cand)) $cfgFile = $cand;
 }
+define('LT_CFG_DIR', $cfgFile !== '' ? dirname($cfgFile) : dirname(LT_ROOT, 2));
 if ($cfgFile === '' || !is_file($cfgFile)) {
     http_response_code(500);
-    exit('Soporte LTELC: falta la configuración (copiar config.sample.php como soporte-config.php fuera de public_html).');
+    exit('Soporte LTELC: falta la configuración (crear soporte-config.php en la carpeta personal del hosting, a partir de config.sample.php).');
 }
 $GLOBALS['LT_CFG'] = require $cfgFile;
 date_default_timezone_set(cfg('timezone', 'America/Argentina/Buenos_Aires'));

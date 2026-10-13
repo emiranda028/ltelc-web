@@ -1,8 +1,8 @@
 <?php
 /*
  * Configuración de Soporte LTELC.
- * Copiar este archivo como  /home/USUARIO/domains/ltelc.tech/soporte-config.php
- * (FUERA de public_html: así no se publica ni lo pisa el deploy desde GitHub) y completar las claves.
+ * Copiar este archivo como  /home/USUARIO/soporte-config.php  (carpeta personal del hosting,
+ * FUERA de public_html: así no se publica ni lo pisa el deploy desde GitHub) y completar las claves.
  */
 return [
     'base_url' => 'https://ltelc.tech/soporte',
@@ -29,6 +29,6 @@ return [
     'systems' => ['Bitácora', 'Gestión Hotelera', 'Hospital El Cruce', 'Panel ABSA', 'GGA', 'Control Profeed', 'Trabajar en Saladillo', 'Atlas Político Mundial', 'Otro'],
 
     // Adjuntos: fuera de public_html
-    'upload_dir' => '/home/USUARIO/domains/ltelc.tech/soporte-uploads',
+    // 'upload_dir' => '/home/USUARIO/soporte-uploads',   // por defecto, junto a este archivo
     'max_upload_mb' => 10,
 ];

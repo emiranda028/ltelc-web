@@ -88,7 +88,7 @@ function find_or_create_contact(string $email, string $name = '', string $org = 
 /* ---------------- adjuntos ---------------- */
 function upload_dir(): string
 {
-    $d = cfg('upload_dir', dirname(LT_ROOT, 2) . '/soporte-uploads');   // fuera de public_html
+    $d = cfg('upload_dir', LT_CFG_DIR . '/soporte-uploads');   // junto a la configuración, fuera de public_html
     if (!is_dir($d)) mkdir($d, 0750, true);
     return $d;
 }

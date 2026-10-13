@@ -8,15 +8,17 @@ hPanel → **Correos** → Crear cuenta: `soporte@ltelc.tech` (anotar la contras
 
 ## 2. Base de datos
 hPanel → **Bases de datos → Administración** → Crear base MySQL (por ejemplo `soporte`) con su usuario y contraseña.
-Hostinger les antepone un prefijo (`u123456789_soporte`): usar los nombres completos.
+Hostinger les antepone el prefijo de la cuenta: `u497151173_soporte`.
 
 ## 3. Configuración
-hPanel → **Administrador de archivos** → subir un nivel desde `public_html` (carpeta `domains/ltelc.tech/`).
-Crear `soporte-config.php` copiando el contenido de `soporte/config.sample.php` y completar:
+hPanel → **Archivos → Administrador de archivos → Acceder a todos los archivos** (carpeta personal, `/home/u497151173/`).
+Ahí, al mismo nivel que `domains`, crear `soporte-config.php` copiando el contenido de `soporte/config.sample.php` y completar:
 - datos de la base (paso 2),
 - contraseña de `soporte@ltelc.tech` en `smtp` e `imap` (paso 1),
-- `cron_key` e `install_key`: dos textos largos al azar,
-- `upload_dir`: la ruta real, por ejemplo `/home/u123456789/domains/ltelc.tech/soporte-uploads`.
+- `cron_key` e `install_key`: dos textos largos al azar.
+
+No usar `domains/ltelc.tech/`: Hostinger la administra para el deploy desde GitHub (archivo `DO_NOT_UPLOAD_HERE`).
+Los adjuntos se guardan en `/home/u497151173/soporte-uploads/`, que se crea sola.
 
 ## 4. Instalar
 Entrar a **https://ltelc.tech/soporte/instalar.php**, poner la `install_key` y crear el primer administrador.
@@ -25,7 +27,7 @@ Después, en el panel → **Equipo**, sumar a Fabián y Gustavo.
 ## 5. Lectura automática del mail (cada 5 minutos)
 hPanel → **Avanzado → Cron Jobs** → tipo PHP, cada 5 minutos:
 ```
-/home/u123456789/domains/ltelc.tech/public_html/soporte/cron.php
+/home/u497151173/domains/ltelc.tech/public_html/soporte/cron.php
 ```
 El cron lee `soporte@ltelc.tech`, convierte cada mail en reclamo (o en respuesta, si el asunto trae `[LT-00012]`),
 lo archiva en la carpeta **Procesados** de la casilla y envía los avisos pendientes al equipo.
