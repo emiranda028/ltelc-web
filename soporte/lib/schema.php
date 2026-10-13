@@ -31,7 +31,7 @@ function install_schema(): void
             subject VARCHAR(200) NOT NULL,
             status VARCHAR(20) NOT NULL DEFAULT 'nuevo',
             priority VARCHAR(20) NOT NULL DEFAULT 'normal',
-            system VARCHAR(80) NOT NULL DEFAULT '',
+            sistema VARCHAR(80) NOT NULL DEFAULT '',
             channel VARCHAR(20) NOT NULL DEFAULT 'web',
             contact_id $fk NOT NULL,
             assignee_id $fk NULL,

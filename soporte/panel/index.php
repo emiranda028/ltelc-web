@@ -59,7 +59,7 @@ page_head('Tickets', 'panel'); ?>
       <td class="num"><?= h(ticket_number((int)$r['id'])) ?><?= $r['channel'] === 'email' ? ' <small title="Llegó por mail">✉</small>' : '' ?></td>
       <td><a class="subj" href="<?= h($link) ?>"><?= h($r['subject']) ?></a></td>
       <td><?= h($r['cname'] ?: $r['cemail']) ?><?= $r['corg'] ? '<br><small>' . h($r['corg']) . '</small>' : '' ?></td>
-      <td><?= h($r['system'] ?: '—') ?></td>
+      <td><?= h($r['sistema'] ?: '—') ?></td>
       <td><?= priority_chip($r['priority']) ?></td>
       <td><?= status_chip($r['status']) ?></td>
       <td><?= h($r['uname'] ?: '—') ?></td>

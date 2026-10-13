@@ -130,7 +130,7 @@ function create_ticket(array $contact, string $subject, string $body, string $pr
 {
     if (!isset(LT_PRIORITIES[$priority])) $priority = 'normal';
     $ts = now();
-    q('INSERT INTO tickets (subject, status, priority, system, channel, contact_id, token, created_at, updated_at, due_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    q('INSERT INTO tickets (subject, status, priority, sistema, channel, contact_id, token, created_at, updated_at, due_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [mb_substr($subject, 0, 200), 'nuevo', $priority, $system, $channel, $contact['id'], random_token(20), $ts, $ts, due_for($priority)]);
     $t = q1('SELECT * FROM tickets WHERE id = ?', [(int)db()->lastInsertId()]);
     add_message($t, 'contact', (int)$contact['id'], $body, false, $channel, $files, $msgid, false);

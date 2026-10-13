@@ -14,13 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($key === '' || !hash_equals($key, (string)($_POST['clave_instalacion'] ?? ''))) $err = 'La clave de instalación no coincide con la de la configuración.';
     elseif ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $err = 'Completá tu nombre y un mail válido.';
     elseif (mb_strlen($pass) < 10) $err = 'La contraseña tiene que tener al menos 10 caracteres.';
-    else {
+    else try {
         install_schema();
         q('INSERT INTO users (name, email, pass_hash, role, active, created_at) VALUES (?, ?, ?, ?, 1, ?)', [$name, $email, password_hash($pass, PASSWORD_DEFAULT), 'admin', now()]);
         session_regenerate_id(true);
         $_SESSION['staff_id'] = (int)db()->lastInsertId();
         flash('Listo: el sistema está instalado. Sumá al resto del equipo desde «Equipo».');
         redirect('panel/');
+    } catch (PDOException $e) {
+        $err = 'No se pudo usar la base de datos. Revisá nombre, usuario y contraseña de la base en soporte-config.php. Detalle: ' . $e->getMessage();
     }
 }
 page_head('Instalación'); ?>

@@ -33,7 +33,7 @@ $open = in_array($t['status'], LT_OPEN, true);
   <section>
     <div class="tk-head">
       <h1><?= h($t['subject']) ?></h1>
-      <div class="meta"><b><?= h($num) ?></b> <?= status_chip($t['status']) ?> <?= priority_chip($t['priority']) ?> <?= $t['system'] ? '· ' . h($t['system']) : '' ?> · creado <?= h(fmt_date($t['created_at'])) ?></div>
+      <div class="meta"><b><?= h($num) ?></b> <?= status_chip($t['status']) ?> <?= priority_chip($t['priority']) ?> <?= $t['sistema'] ? '· ' . h($t['sistema']) : '' ?> · creado <?= h(fmt_date($t['created_at'])) ?></div>
     </div>
     <?php render_thread($msgs, base_url('descarga.php?t=' . $t['token']), false); ?>
     <form class="card" method="post" enctype="multipart/form-data">

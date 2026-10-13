@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $changes[] = 'asignado → ' . $who;
             if ($as && $as !== (int)$me['id']) notify_team($t, "Te asignaron $num", [$me['name'] . ' te asignó el reclamo "' . $t['subject'] . '".'], $pr === 'urgente', $as);
         }
-        if ($sy !== (string)$t['system']) { q('UPDATE tickets SET system = ? WHERE id = ?', [$sy, $t['id']]); $changes[] = 'sistema → ' . ($sy ?: '—'); }
+        if ($sy !== (string)$t['sistema']) { q('UPDATE tickets SET sistema = ? WHERE id = ?', [$sy, $t['id']]); $changes[] = 'sistema → ' . ($sy ?: '—'); }
         if ($changes) {
             q('INSERT INTO messages (ticket_id, author_type, author_id, body, internal, via, created_at) VALUES (?, ?, ?, ?, 1, ?, ?)',
               [$t['id'], 'system', $me['id'], $me['name'] . ': ' . implode(' · ', $changes), 'panel', now()]);
@@ -91,7 +91,7 @@ page_head("$num · {$t['subject']}", 'panel'); ?>
       <div class="field"><label for="estado">Estado</label><select id="estado" name="estado"><?php foreach (LT_STATUSES as $k2 => $l): ?><option value="<?= $k2 ?>"<?= $t['status'] === $k2 ? ' selected' : '' ?>><?= h($l) ?></option><?php endforeach; ?></select></div>
       <div class="field"><label for="prioridad">Prioridad</label><select id="prioridad" name="prioridad"><?php foreach (LT_PRIORITIES as $k2 => [$l]): ?><option value="<?= $k2 ?>"<?= $t['priority'] === $k2 ? ' selected' : '' ?>><?= h($l) ?></option><?php endforeach; ?></select></div>
       <div class="field"><label for="asignado">Asignado</label><select id="asignado" name="asignado"><option value="0">Sin asignar</option><?php foreach ($users as $u): ?><option value="<?= $u['id'] ?>"<?= (int)$t['assignee_id'] === (int)$u['id'] ? ' selected' : '' ?>><?= h($u['name']) ?></option><?php endforeach; ?></select></div>
-      <div class="field"><label for="sistema">Sistema</label><select id="sistema" name="sistema"><option value="">—</option><?php foreach (systems() as $sy): ?><option<?= $t['system'] === $sy ? ' selected' : '' ?>><?= h($sy) ?></option><?php endforeach; ?></select></div>
+      <div class="field"><label for="sistema">Sistema</label><select id="sistema" name="sistema"><option value="">—</option><?php foreach (systems() as $sy): ?><option<?= $t['sistema'] === $sy ? ' selected' : '' ?>><?= h($sy) ?></option><?php endforeach; ?></select></div>
       <button class="btn small" name="accion" value="datos">Guardar</button>
     </form>
     <div class="card">

@@ -35,7 +35,7 @@ if (!$c): ?>
   <?php else: ?>
     <table class="list"><thead><tr><th>N°</th><th>Asunto</th><th>Sistema</th><th>Prioridad</th><th>Estado</th><th>Última actividad</th></tr></thead><tbody>
     <?php foreach ($rows as $r): $link = base_url('ticket.php?t=' . $r['token']); ?>
-      <tr class="row" onclick="location.href='<?= h($link) ?>'"><td class="num"><?= h(ticket_number((int)$r['id'])) ?></td><td><a class="subj" href="<?= h($link) ?>"><?= h($r['subject']) ?></a></td><td><?= h($r['system'] ?: '—') ?></td><td><?= priority_chip($r['priority']) ?></td><td><?= status_chip($r['status']) ?></td><td class="num"><?= h(fmt_date($r['updated_at'])) ?></td></tr>
+      <tr class="row" onclick="location.href='<?= h($link) ?>'"><td class="num"><?= h(ticket_number((int)$r['id'])) ?></td><td><a class="subj" href="<?= h($link) ?>"><?= h($r['subject']) ?></a></td><td><?= h($r['sistema'] ?: '—') ?></td><td><?= priority_chip($r['priority']) ?></td><td><?= status_chip($r['status']) ?></td><td class="num"><?= h(fmt_date($r['updated_at'])) ?></td></tr>
     <?php endforeach; ?>
     </tbody></table>
   <?php endif; ?>
