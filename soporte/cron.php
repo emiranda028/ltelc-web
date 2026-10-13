@@ -25,6 +25,14 @@ try {
     $out .= 'mail: ERROR ' . $e->getMessage();
 }
 $out .= ' · avisos enviados: ' . process_queue();
+$pend = q('SELECT COUNT(*) FROM notify_queue WHERE sent_at IS NULL AND send_after <= ?', [now()])->fetchColumn();
+$later = q('SELECT COUNT(*) FROM notify_queue WHERE sent_at IS NULL AND send_after > ?', [now()])->fetchColumn();
+$sent = q('SELECT COUNT(*) FROM notify_queue WHERE sent_at IS NOT NULL')->fetchColumn();
+$out .= " · sin poder enviar: $pend · programados para el horario: $later · enviados en total: $sent";
+if (!is_cli() && isset($_GET['detalle'])) {
+    foreach (q('SELECT to_email, subject, send_after, sent_at FROM notify_queue ORDER BY id DESC LIMIT 10')->fetchAll() as $r)
+        $out .= "\n  " . preg_replace('/^(.).*(@.*)$/', '$1***$2', $r['to_email']) . ' | ' . $r['subject'] . ' | ' . ($r['sent_at'] ? 'enviado ' . $r['sent_at'] : 'pendiente desde ' . $r['send_after']);
+}
 
 // limpieza: tokens vencidos y registros de límite viejos
 q('DELETE FROM login_tokens WHERE expires_at < ?', [date('Y-m-d H:i:s', time() - 86400)]);
