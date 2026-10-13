@@ -16,6 +16,8 @@ return [
     'mail_from_name' => 'Soporte LTELC',
     // Copia de todos los avisos del equipo (reclamos nuevos, respuestas de clientes, asignaciones)
     'notify_copy' => ['agencialtelc@gmail.com'],
+    // Remitentes (dominios) cuyos mails nunca son reclamos
+    'ignore_from' => ['hostinger.com'],
     'smtp' => ['host' => 'smtp.hostinger.com', 'port' => 465, 'secure' => 'ssl', 'user' => 'soporte@ltelc.tech', 'pass' => 'CAMBIAR'],
     'imap' => ['host' => 'imap.hostinger.com', 'port' => 993, 'user' => 'soporte@ltelc.tech', 'pass' => 'CAMBIAR', 'folder' => 'INBOX', 'done_folder' => 'Procesados'],
 

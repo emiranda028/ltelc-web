@@ -143,7 +143,9 @@ function html_to_text(string $html): string
     $html = preg_replace('~<(script|style|head)[^>]*>.*?</\1>~is', '', $html);
     $html = preg_replace('~<(br|/p|/div|/tr|/li|/h\d)[^>]*>~i', "\n", $html);
     $t = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    return trim(preg_replace("/\n{3,}/", "\n\n", preg_replace('/[ \t]+/', ' ', $t)));
+    $t = preg_replace('/[ \t\x{00A0}\x{200B}-\x{200D}\x{FEFF}]+/u', ' ', $t);
+    $t = preg_replace('/^ +| +$/m', '', $t);
+    return trim(preg_replace("/\n{3,}/", "\n\n", $t));
 }
 
 /** Recorre las partes de un mail y junta texto y adjuntos. */

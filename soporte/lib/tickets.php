@@ -257,7 +257,11 @@ function strip_quoted(string $text): string
 function ingest_email(string $fromEmail, string $fromName, string $subject, string $text, array $attachments = [], ?string $msgid = null, bool $autoSubmitted = false): ?int
 {
     $fromEmail = mb_strtolower(trim($fromEmail));
-    if ($autoSubmitted || $fromEmail === mb_strtolower((string)cfg('mail_from')) || preg_match('/^(mailer-daemon|postmaster|no-?reply)@/i', $fromEmail)) return null;
+    if ($autoSubmitted || $fromEmail === mb_strtolower((string)cfg('mail_from')) || preg_match('/^(mailer-daemon|postmaster|no-?reply|do-?not-?reply)@/i', $fromEmail)) return null;
+    foreach ((array)cfg('ignore_from', ['hostinger.com']) as $dom) {   // avisos del hosting y similares
+        $dom = ltrim(mb_strtolower(trim($dom)), '@');
+        if ($dom !== '' && ($fromEmail === $dom || str_ends_with($fromEmail, '@' . $dom) || str_ends_with($fromEmail, '.' . $dom))) return null;
+    }
     if ($msgid && q1('SELECT id FROM messages WHERE email_msgid = ?', [$msgid])) return null;   // ya procesado
     $subject = trim($subject) ?: '(sin asunto)';
     $body = strip_quoted($text);

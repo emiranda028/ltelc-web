@@ -40,11 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         redirect($back);
     }
+    if ($action === 'eliminar' && $me['role'] === 'admin') {
+        $mids = q('SELECT id FROM messages WHERE ticket_id = ?', [$t['id']])->fetchAll(PDO::FETCH_COLUMN);
+        foreach ($mids as $mid) {
+            foreach (q('SELECT stored FROM attachments WHERE message_id = ?', [$mid])->fetchAll(PDO::FETCH_COLUMN) as $f) @unlink(upload_dir() . '/' . basename($f));
+            q('DELETE FROM attachments WHERE message_id = ?', [$mid]);
+        }
+        q('DELETE FROM messages WHERE ticket_id = ?', [$t['id']]);
+        q('DELETE FROM tickets WHERE id = ?', [$t['id']]);
+        flash("Eliminamos $num (no era un reclamo).");
+        redirect('panel/');
+    }
     if ($action === 'responder' || $action === 'nota') {
         $body = trim((string)($_POST['mensaje'] ?? ''));
         [$files, $upErr] = collect_uploads($_FILES['adjuntos'] ?? null);
         if ($upErr) { flash($upErr, 'error'); redirect($back); }
-        if ($body === '') { flash('Escribí el mensaje.', 'error'); redirect($back); }
+        if ($body === '' && !$files) {
+            $next = $_POST['despues'] ?? '';
+            if ($action === 'responder' && isset(LT_STATUSES[$next]) && $next !== $t['status']) {   // solo cambiar el estado
+                set_status($t, $next);
+                q('INSERT INTO messages (ticket_id, author_type, author_id, body, internal, via, created_at) VALUES (?, ?, ?, ?, 1, ?, ?)',
+                  [$t['id'], 'system', $me['id'], $me['name'] . ': estado → ' . status_label($next) . ' (sin aviso al cliente)', 'panel', now()]);
+                flash('Estado actualizado a «' . status_label($next) . '». No se le envió nada al cliente.');
+            } elseif ($action === 'responder' && $next === $t['status']) flash('El reclamo ya está «' . status_label($next) . '». Para responder, escribí el mensaje.', 'error');
+            else flash('Escribí el mensaje.', 'error');
+            redirect($back);
+        }
         $internal = $action === 'nota';
         add_message($t, 'staff', (int)$me['id'], $body, $internal, 'panel', $files);
         if (!$internal) {
@@ -73,7 +94,7 @@ page_head("$num · {$t['subject']}", 'panel'); ?>
     <?php render_thread($msgs, base_url('descarga.php'), true); ?>
     <form class="card" method="post" enctype="multipart/form-data">
       <?= csrf_field() ?>
-      <div class="field"><label for="mensaje">Respuesta</label><textarea id="mensaje" name="mensaje" placeholder="Lo que escribas acá le llega al cliente por mail. Usá «Nota interna» para comentarios del equipo."></textarea></div>
+      <div class="field"><label for="mensaje">Respuesta</label><textarea id="mensaje" name="mensaje" placeholder="Lo que escribas acá le llega al cliente por mail. Usá «Nota interna» para comentarios del equipo. Para solo cambiar el estado, dejalo vacío, elegí el estado abajo y tocá «Responder al cliente», o usá «Gestión»."></textarea></div>
       <div class="reply-tools">
         <input type="file" name="adjuntos[]" multiple aria-label="Adjuntar archivos">
         <label class="check">Después de responder: <select name="despues" style="width:auto;padding:6px 10px">
@@ -104,6 +125,10 @@ page_head("$num · {$t['subject']}", 'panel'); ?>
       <h3>Plazos</h3>
       <dl class="kv"><dt>Creado</dt><dd><?= h(fmt_date($t['created_at'])) ?></dd><dt>Responder antes de</dt><dd><?= h(fmt_date($t['due_at'])) ?></dd><dt>1ª respuesta</dt><dd><?= h(fmt_date($t['first_response_at'])) ?></dd><dt>Cerrado</dt><dd><?= h(fmt_date($t['closed_at'])) ?></dd></dl>
       <p style="margin:14px 0 0;font-size:.86rem"><a href="<?= h(ticket_link($t)) ?>" target="_blank" rel="noopener">Ver como el cliente</a></p>
+      <?php if ($me['role'] === 'admin'): ?>
+      <form method="post" style="margin-top:14px" onsubmit="return confirm('¿Eliminar <?= h($num) ?>? Se borra con sus mensajes y adjuntos. Usalo solo para spam o mails que no son reclamos.')"><?= csrf_field() ?>
+        <button class="btn small line" name="accion" value="eliminar" style="color:var(--bad)">Eliminar (no es un reclamo)</button></form>
+      <?php endif; ?>
     </div>
   </aside>
 </div>
