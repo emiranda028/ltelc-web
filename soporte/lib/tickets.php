@@ -207,11 +207,15 @@ function notify_team(array $t, string $subject, array $lines, bool $urgent, ?int
     $users = $onlyUserId
         ? q('SELECT * FROM users WHERE id = ? AND active = 1', [$onlyUserId])->fetchAll()
         : q('SELECT * FROM users WHERE active = 1')->fetchAll();
-    [$tx, $ht] = email_template($subject, $lines, ['Abrir en el panel', base_url('panel/ticket.php?id=' . $t['id'])]);
+    [$tx, $ht] = email_template($subject, $lines, ['Abrir en el panel', base_url('panel/ticket.php?id=' . $t['id'])],
+        'Respondé al cliente desde el panel: si contestás este aviso, la respuesta no le llega.');
     $when = $urgent ? new DateTimeImmutable() : next_business_start();
-    foreach ($users as $u) {
+    // equipo + casillas que reciben copia de todo (config notify_copy)
+    $to = array_map(fn($u) => mb_strtolower($u['email']), $users);
+    foreach ((array)cfg('notify_copy', ['agencialtelc@gmail.com']) as $copy) $to[] = mb_strtolower(trim($copy));
+    foreach (array_unique(array_filter($to)) as $email) {
         q('INSERT INTO notify_queue (to_email, subject, body_text, body_html, send_after, created_at) VALUES (?, ?, ?, ?, ?, ?)',
-          [$u['email'], $subject, $tx, $ht, $when->format('Y-m-d H:i:s'), now()]);
+          [$email, $subject, $tx, $ht, $when->format('Y-m-d H:i:s'), now()]);
     }
     if ($urgent || in_business_hours()) process_queue(20);
 }

@@ -36,6 +36,7 @@ lo archiva en la carpeta **Procesados** de la casilla y envía los avisos pendie
 - **Entradas**: formulario web, mail a soporte@ltelc.tech, respuestas a los mails del sistema y derivación desde WhatsApp.
 - **Clientes**: reciben número de reclamo, siguen todo por mail o desde su enlace; en «Mis reclamos» entran con un enlace al mail, sin contraseña.
 - **Equipo**: bandeja con plazos, asignación, notas internas que el cliente no ve, prioridades y estados.
+- **Copia**: todos los avisos al equipo llegan también a agencialtelc@gmail.com (`notify_copy` en la configuración).
 - **Horario**: lunes a viernes de 9 a 18. Fuera de horario el equipo no recibe avisos, salvo los **urgentes**. Los plazos se cuentan en horas hábiles (urgente 2 h, alta 4 h, normal 9 h, baja 27 h).
 - Los reclamos resueltos sin novedades pasan a «Cerrado» a los 7 días.
 
