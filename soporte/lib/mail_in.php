@@ -46,7 +46,23 @@ final class LtImap
     }
 
     public function select(string $box): void { $this->cmd('SELECT ' . $this->quote($box)); }
-    public function ensure(string $box): void { try { $this->cmd('CREATE ' . $this->quote($box)); } catch (RuntimeException $e) { /* ya existe */ } }
+    /**
+     * Crea la carpeta si hace falta y devuelve su nombre real. Algunos servidores (Hostinger/Dovecot)
+     * exigen el prefijo del espacio personal, por ejemplo "INBOX.Procesados".
+     */
+    public function ensure(string $box): string
+    {
+        $prefix = '';
+        try {
+            foreach ($this->cmd('NAMESPACE') as $l) {
+                if (preg_match('/^\* NAMESPACE \(\("([^"]*)"/', $l, $m)) $prefix = $m[1];
+            }
+        } catch (RuntimeException $e) { /* el servidor no informa espacios */ }
+        if ($prefix !== '' && strcasecmp($box, 'INBOX') !== 0 && stripos($box, $prefix) !== 0) $box = $prefix . $box;
+        try { $this->cmd('CREATE ' . $this->quote($box)); } catch (RuntimeException $e) { /* ya existe */ }
+        try { $this->cmd('SUBSCRIBE ' . $this->quote($box)); } catch (RuntimeException $e) {}
+        return $box;
+    }
 
     /** @return int[] UIDs de la carpeta seleccionada */
     public function uids(): array
@@ -195,7 +211,7 @@ function fetch_mailbox(int $limit = 40): array
     if (!$c || empty($c['host'])) return ['ok' => false, 'msg' => 'IMAP sin configurar'];
     $im = new LtImap($c['host'], (int)($c['port'] ?? 993), $c['user'], $c['pass']);
     $done = $c['done_folder'] ?? 'Procesados';
-    $im->ensure($done);
+    $done = $im->ensure($done);
     $im->select($c['folder'] ?? 'INBOX');
     $stats = ['ok' => true, 'leidos' => 0, 'tickets' => 0, 'ignorados' => 0];
     foreach (array_slice($im->uids(), 0, $limit) as $uid) {
