@@ -187,14 +187,16 @@ section{position:relative}
 .sectors{padding-block:clamp(90px,11vw,150px) 0;text-align:center}
 .sectors h2{max-width:18ch;margin:0 auto}
 .sectors .lead{margin:18px auto 0}
-.sector-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:56px;text-align:center}
+.sector-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:56px;text-align:center}
+.sector-grid .sector{flex:0 1 calc((100% - 72px)/5)}
 .sector .ph{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5}
 .sector .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .sector:hover .ph img{transform:scale(1.05)}
 .sector h3{font-size:1.35rem;font-weight:600;margin-top:22px}
 .sector p{margin:6px auto 0;color:var(--muted);font-size:.95rem;max-width:22em}
-@media (max-width:980px){.sector-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.sector-grid{grid-template-columns:1fr}}
+@media (max-width:1100px){.sector-grid .sector{flex-basis:calc((100% - 36px)/3)}}
+@media (max-width:700px){.sector-grid .sector{flex-basis:calc((100% - 18px)/2)}}
+@media (max-width:440px){.sector-grid .sector{flex-basis:100%}}
 
 
 /* ---------- casos destacados: todo en 1 ---------- */
@@ -560,7 +562,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
       <h2 id="numT">Systems that run <b>real operations</b>, every day</h2>
       <div class="stats">
         <div class="stat"><b data-count="9">9</b><span>systems and platforms in production</span></div>
-        <div class="stat"><b data-count="5">5</b><span>sectors: transport, ports, healthcare, hospitality and water</span></div>
+        <div class="stat"><b data-count="6">6</b><span>sectors: transport, ports, healthcare, hospitality, water and agribusiness</span></div>
         <div class="stat"><b data-count="197">197</b><span>countries analyzed in the World Political Atlas</span></div>
         <div class="stat"><b data-count="4">4</b><span>Marriott and Sheraton hotels in Buenos Aires, Bariloche and Mar del Plata</span></div>
       </div>
@@ -572,12 +574,13 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
     <div class="wrap">
       <p class="kicker">Industries</p>
       <h2>Where information <b>cannot fail</b></h2>
-      <p class="lead">On the railway, at the port, in the hospital, at the hotel front desk and in the water utility. We know operations that never stop.</p>
+      <p class="lead">On the railway, at the port, in the hospital, at the hotel front desk, in the water utility and in the feedlot. We know operations that never stop.</p>
       <div class="sector-grid">
         <article class="sector rise"><div class="ph"><img src="../img/transporte.jpg" alt="Train" loading="lazy"></div><h3>Rail transport</h3><p>Budgeting, execution and multi-year planning.</p></article>
         <article class="sector rise"><div class="ph"><img src="../img/puerto.jpg" alt="Aerial view of a port" loading="lazy"></div><h3>Ports &amp; marine pilotage</h3><p>Bitácora: dispatch desk, operations and billing, paperless.</p></article>
         <article class="sector rise"><div class="ph"><img src="../img/salud-cruce.jpg" alt="Hospital El Cruce building" loading="lazy"></div><h3>Healthcare</h3><p>Integrated administration for Hospital El Cruce.</p></article>
         <article class="sector rise"><div class="ph"><img src="../img/hoteleria-marriott.jpg" alt="Buenos Aires Marriott building" loading="lazy"></div><h3>Hospitality</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata and City Express Plus by Marriott.</p></article>
+        <article class="sector rise"><div class="ph"><img src="../img/agro-feedlot.jpg" alt="Steers in a feedlot pen" loading="lazy"></div><h3>Agribusiness</h3><p>Feedlots: arrivals, departures, weights and costs up to date, from the pen to the back office.</p></article>
       </div>
     </div>
   </section>
@@ -725,7 +728,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
       </div>
       <div class="team-stack rise">
         <div><h4>We cover</h4><p>Operations, administration, accounting, finance, management control, data and development.</p></div>
-        <div><h4>Industries</h4><p>Public sector, civil society, transport, media &amp; telecom, energy, healthcare, hospitality and ports.</p></div>
+        <div><h4>Industries</h4><p>Public sector, civil society, transport, media &amp; telecom, energy, healthcare, hospitality, ports and agribusiness.</p></div>
         <div><h4>Tools</h4><p>Power BI, SQL, Python, SAP, Tango, CRM, advanced Excel and generative AI.</p></div>
       </div>
     </div>
@@ -798,7 +801,7 @@ footer{padding-block:clamp(56px,7vw,90px) 36px}
         <p>Lo Tengo en la Cabeza. Consultancy in management systems, data and custom software.</p>
       </div>
       <div><h4>Solutions</h4><ul><li><a href="#soluciones">Management</a></li><li><a href="#soluciones">Accounting</a></li><li><a href="#soluciones">KPIs</a></li><li><a href="#soluciones">Custom software</a></li><li><a href="#soluciones">Automation &amp; AI</a></li></ul></div>
-      <div><h4>Industries</h4><ul><li><a href="#sectores">Transport</a></li><li><a href="#sectores">Ports</a></li><li><a href="#sectores">Healthcare</a></li><li><a href="#sectores">Hospitality</a></li><li><a href="#sectores">Water &amp; sanitation</a></li></ul></div>
+      <div><h4>Industries</h4><ul><li><a href="#sectores">Transport</a></li><li><a href="#sectores">Ports</a></li><li><a href="#sectores">Healthcare</a></li><li><a href="#sectores">Hospitality</a></li><li><a href="#sectores">Water &amp; sanitation</a></li><li><a href="#sectores">Agribusiness</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="https://wa.me/5491157062947" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:agencialtelc@gmail.com">agencialtelc@gmail.com</a></li><li><a href="#contacto">Contact form</a></li><li><a href="/soporte/">Client support</a></li></ul></div>
     </div>
     <div class="legal"><span>© <span id="yr">2026</span> LTELC · Lo Tengo en la Cabeza</span><span>ltelc.tech · Buenos Aires, Argentina</span></div>
