@@ -224,6 +224,7 @@ section{position:relative}
 .mods span{background:#fff;border-radius:14px;padding:16px 14px;font-weight:600;font-size:.95rem;box-shadow:0 1px 0 var(--line);display:flex;flex-direction:column;gap:8px}
 .mods span i{width:22px;height:4px;border-radius:2px;background:var(--blue)}
 .mods span:nth-child(3n+2) i{background:#7FA6FF}.mods span:nth-child(3n) i{background:var(--amber)}
+@media (max-width:480px){.mods{grid-template-columns:repeat(2,minmax(0,1fr))}.mods span{min-width:0;hyphens:auto}}
 .merge{display:flex;justify-content:center;padding:6px 0;color:var(--muted)}
 .merge svg{width:28px;height:28px}
 .decide{background:var(--navy);color:#fff;border-radius:18px;padding:20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
