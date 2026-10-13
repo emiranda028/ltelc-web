@@ -97,7 +97,7 @@ T = [
 ('<h3>Puertos y practicaje</h3><p>Bitácora: guardia, operación y facturación sin papel.</p>', '<h3>Ports &amp; marine pilotage</h3><p>Bitácora: dispatch desk, operations and billing, paperless.</p>', '<h3>Portos e praticagem</h3><p>Bitácora: plantão, operação e faturamento sem papel.</p>'),
 ('alt="Fachada del Hospital El Cruce"', 'alt="Hospital El Cruce building"', 'alt="Fachada do Hospital El Cruce"'),
 ('<h3>Salud</h3><p>Administración integral del Hospital El Cruce.</p>', '<h3>Healthcare</h3><p>Integrated administration for Hospital El Cruce.</p>', '<h3>Saúde</h3><p>Gestão administrativa integrada do Hospital El Cruce.</p>'),
-('alt="Fachada del City Express Plus by Marriott Buenos Aires"', 'alt="City Express Plus by Marriott Buenos Aires building"', 'alt="Fachada do City Express Plus by Marriott Buenos Aires"'),
+('alt="Fachada del Buenos Aires Marriott"', 'alt="Buenos Aires Marriott building"', 'alt="Fachada do Buenos Aires Marriott"'),
 ('<h3>Hotelería</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata y City Express Plus by Marriott.</p>', '<h3>Hospitality</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata and City Express Plus by Marriott.</p>', '<h3>Hotelaria</h3><p>Marriott Buenos Aires, Sheraton Bariloche, Sheraton Mar del Plata e City Express Plus by Marriott.</p>'),
 # --- casos ---
 ('<p class="kicker">Todo en 1</p><h2 id="casesT">Un solo sistema, <b>de punta a punta</b></h2>', '<p class="kicker">All in one</p><h2 id="casesT">One system, <b>end to end</b></h2>', '<p class="kicker">Tudo em 1</p><h2 id="casesT">Um só sistema, <b>de ponta a ponta</b></h2>'),
